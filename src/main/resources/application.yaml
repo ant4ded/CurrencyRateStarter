@@ -1,1 +1,3 @@
-spring.application.name=CurrencyRateStarter
+spring:
+  application:
+    name: CurrencyRateStarter

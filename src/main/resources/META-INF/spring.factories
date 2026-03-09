@@ -1,1 +1,1 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=my.idp.spring.currency.rate.starter.CurrencyConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=my.idp.spring.currency.rate.starter.configuration.CurrencyRateAutoConfiguration
