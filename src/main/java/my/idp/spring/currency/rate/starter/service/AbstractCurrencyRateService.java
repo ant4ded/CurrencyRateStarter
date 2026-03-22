@@ -3,6 +3,8 @@ package my.idp.spring.currency.rate.starter.service;
 import my.idp.spring.currency.rate.starter.configuration.CurrencyRateStarterProperties;
 import my.idp.spring.currency.rate.starter.dto.CurrencyRateDto;
 import my.idp.spring.currency.rate.starter.dto.IncomingCurrencyRateDto;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.web.client.RestTemplate;
 
 import javax.annotation.PostConstruct;
@@ -12,6 +14,8 @@ import java.time.LocalDateTime;
 import java.util.*;
 
 public abstract class AbstractCurrencyRateService implements CurrencyRateService {
+	protected static final Logger logger = LoggerFactory.getLogger(AbstractCurrencyRateService.class);
+
 	protected final RestTemplate restTemplate;
 	protected final String url;
 	protected final List<String> currencies;
@@ -20,6 +24,7 @@ public abstract class AbstractCurrencyRateService implements CurrencyRateService
 	protected final int crossRateScale;
 
 	protected AbstractCurrencyRateService(RestTemplate restTemplate, CurrencyRateStarterProperties properties) {
+		logger.debug("Create {} with properties: {}", this.getClass().getSimpleName(), properties);
 		this.restTemplate = restTemplate;
 		this.url = properties.getUrl();
 		this.currencies = properties.getCurrencies();
@@ -29,10 +34,14 @@ public abstract class AbstractCurrencyRateService implements CurrencyRateService
 
 	@PostConstruct
 	public void postConstruct() {
+		logger.info("Start loading currency rates");
 		fetchAndProcessData();
+		logger.info("Currency rates loaded");
 		if (enableCrossRate) {
+			logger.info("Start building cross rates");
 			List<CurrencyRateDto> crossRates = generateCrossRate(crossRateScale, cache);
 			cache.addAll(crossRates);
+			logger.info("Cross rates built");
 		}
 	}
 
@@ -112,12 +121,14 @@ public abstract class AbstractCurrencyRateService implements CurrencyRateService
 						}
 
 						if (!hasAB) {
-							CurrencyRateDto crossRateABDto = buildCrossRate(crossRateScale, a, b, date, bynToCurrencyMap.get(a), bynToCurrencyMap.get(b));
-							crossRates.add(crossRateABDto);
+							CurrencyRateDto generatedRate = buildCrossRate(crossRateScale, a, b, date, bynToCurrencyMap.get(a), bynToCurrencyMap.get(b));
+							crossRates.add(generatedRate);
+							logger.debug("Generated rate: {}", generatedRate);
 						}
 						if (!hasBA) {
-							CurrencyRateDto crossRateABDto = buildCrossRate(crossRateScale, b, a, date, bynToCurrencyMap.get(b), bynToCurrencyMap.get(a));
-							crossRates.add(crossRateABDto);
+							CurrencyRateDto generatedRate = buildCrossRate(crossRateScale, b, a, date, bynToCurrencyMap.get(b), bynToCurrencyMap.get(a));
+							crossRates.add(generatedRate);
+							logger.debug("Generated rate: {}", generatedRate);
 						}
 					}
 				}
