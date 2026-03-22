@@ -12,6 +12,6 @@ import org.springframework.web.client.RestTemplate;
 public class DateRangeCurrencyRateConfiguration {
 	@Bean
 	public CurrencyRateService currencyRateService(RestTemplate restTemplate, CurrencyRateStarterProperties properties) {
-		return new DateRangeCurrencyRateService(restTemplate, properties.getUrl(), properties.getCurrencies(), properties.getDateFrom(), properties.getDateTo());
+		return new DateRangeCurrencyRateService(restTemplate, properties);
 	}
 }

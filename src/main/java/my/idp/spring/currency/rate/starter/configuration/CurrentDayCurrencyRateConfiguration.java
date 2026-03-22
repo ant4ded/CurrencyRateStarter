@@ -12,6 +12,6 @@ import org.springframework.web.client.RestTemplate;
 public class CurrentDayCurrencyRateConfiguration {
 	@Bean
 	public CurrencyRateService currencyRateService(RestTemplate restTemplate, CurrencyRateStarterProperties properties) {
-		return new CurrentDayCurrencyRateService(restTemplate, properties.getUrl(), properties.getCurrencies());
+		return new CurrentDayCurrencyRateService(restTemplate, properties);
 	}
 }

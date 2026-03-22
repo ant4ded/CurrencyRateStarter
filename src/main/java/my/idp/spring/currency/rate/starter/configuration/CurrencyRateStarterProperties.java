@@ -15,5 +15,7 @@ public class CurrencyRateStarterProperties {
 	private LocalDate dateFrom;
 	private LocalDate dateTo;
 	private String url;
+	private int crossRateScale = 32;
+	private boolean enableCrossRate;
 	private List<String> currencies;
 }
