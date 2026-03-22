@@ -56,6 +56,14 @@ public abstract class AbstractCurrencyRateService implements CurrencyRateService
 					.to(incomingDto.getToCurrency())
 					.rate(rate)
 					.build();
+			if (!incomingDto.getRate().equals(rate)) {
+				logger.warn("Rate on date {} was replaced for currencies pair {}/{} from {} to {}",
+						rateDto.getOnDate(),
+						rateDto.getFrom(),
+						rateDto.getTo(),
+						incomingDto.getRate(),
+						rateDto.getRate());
+			}
 			cache.add(rateDto);
 		}
 	}
