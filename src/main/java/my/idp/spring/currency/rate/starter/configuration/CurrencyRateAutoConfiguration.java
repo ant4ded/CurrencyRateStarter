@@ -8,7 +8,7 @@ import org.springframework.web.client.RestTemplate;
 
 @Configuration
 @EnableConfigurationProperties(CurrencyRateStarterProperties.class)
-@Import({DateRangeCurrencyRateConfiguration.class, CurrentDayCurrencyRateConfiguration.class})
+@Import({DateRangeCurrencyRateConfiguration.class, CurrentDayCurrencyRateConfiguration.class, CurrencyRateActuatorConfiguration.class})
 public class CurrencyRateAutoConfiguration {
 	@Bean
 	public RestTemplate restTemplate() {
