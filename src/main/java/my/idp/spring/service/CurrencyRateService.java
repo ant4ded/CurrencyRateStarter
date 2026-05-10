@@ -1,6 +1,6 @@
-package my.idp.spring.currency.rate.starter.service;
+package my.idp.spring.service;
 
-import my.idp.spring.currency.rate.starter.dto.CurrencyRateDto;
+import my.idp.spring.dto.CurrencyRateDto;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

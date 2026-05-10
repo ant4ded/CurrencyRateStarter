@@ -1,7 +1,7 @@
-package my.idp.spring.currency.rate.starter.configuration;
+package my.idp.spring.configuration;
 
-import my.idp.spring.currency.rate.starter.actuator.CurrencyRateEndpoint;
-import my.idp.spring.currency.rate.starter.service.CurrencyRateService;
+import my.idp.spring.actuator.CurrencyRateEndpoint;
+import my.idp.spring.service.CurrencyRateService;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

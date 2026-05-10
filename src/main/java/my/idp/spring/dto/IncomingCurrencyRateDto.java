@@ -1,4 +1,4 @@
-package my.idp.spring.currency.rate.starter.dto;
+package my.idp.spring.dto;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Getter;

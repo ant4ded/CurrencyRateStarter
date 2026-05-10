@@ -1,7 +1,7 @@
-package my.idp.spring.currency.rate.starter.actuator;
+package my.idp.spring.actuator;
 
-import my.idp.spring.currency.rate.starter.dto.CurrencyRateDto;
-import my.idp.spring.currency.rate.starter.service.CurrencyRateService;
+import my.idp.spring.dto.CurrencyRateDto;
+import my.idp.spring.service.CurrencyRateService;
 import org.springframework.boot.actuate.endpoint.annotation.Endpoint;
 import org.springframework.boot.actuate.endpoint.annotation.ReadOperation;
 

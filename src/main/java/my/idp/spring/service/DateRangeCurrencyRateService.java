@@ -1,7 +1,7 @@
-package my.idp.spring.currency.rate.starter.service;
+package my.idp.spring.service;
 
-import my.idp.spring.currency.rate.starter.configuration.CurrencyRateStarterProperties;
-import my.idp.spring.currency.rate.starter.dto.IncomingCurrencyRateDto;
+import my.idp.spring.configuration.CurrencyRateStarterProperties;
+import my.idp.spring.dto.IncomingCurrencyRateDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.client.RestTemplate;
 

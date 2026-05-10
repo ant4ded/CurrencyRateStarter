@@ -1,4 +1,4 @@
-package my.idp.spring.currency.rate.starter.configuration;
+package my.idp.spring.configuration;
 
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;

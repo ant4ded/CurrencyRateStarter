@@ -1,4 +1,4 @@
-package my.idp.spring.currency.rate.starter.configuration;
+package my.idp.spring.configuration;
 
 import lombok.Getter;
 import lombok.Setter;
